@@ -78,7 +78,7 @@ function App() {
       </div>
 
       <div className="flex justify-center md:my-5">
-        <span className="font-bold text-4xl px-2 md:text-6xl">Our</span><span className="font-bold text-4xl text-blue-600 md:text-6xl">Doctors</span>
+        <span className="font-bold text-4xl px-2 md:text-6xl">Our</span><span className="font-bold text-4xl text-green-600 md:text-6xl">Doctors</span>
       </div>
       <div className="flex justify-center">
         <p className="font-medium text-gray-500 text-center text-xl md:text-3xl">Select your doctor and Book Your Appointment in one click</p>
@@ -88,7 +88,7 @@ function App() {
         {Doctors.map((item, index) => {
           return (
             <>
-              <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow text-black">
+              <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow text-black" key={index}>
 
                 <div className="flex flex-col items-center pb-10 text-black my-5">
                   <img className="w-24 h-24 mb-3 rounded-full shadow-lg object-contain" src={item.image} alt="Bonnie image" />
@@ -139,7 +139,6 @@ function App() {
           </button>
         </Box>
       </Modal>
-
     </>
   )
 }
