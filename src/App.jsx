@@ -88,13 +88,17 @@ function App() {
         {Doctors.map((item, index) => {
           return (
             <>
-              <div key={index} className="flex flex-col items-center justify-center p-5 border-2 mx-2 my-2 rounded-lg lg:w-auto lg:h-auto">
-                <CardMedia className="rounded-full w-[100px] h-auto md:w-[150px] md:h-auto lg:w-auto lg:h-auto object-cover" component="img" sx={{ height: "auto" }} image={item.image} />
-                <p className="font-semibold text-lg text-black">{item.name}</p>
-                <p className="text-blue-600">{item.experience}</p>
-                <button id="readMore" onClick={() => handleOpen(item)} className="bg-white border-2 border-sky-700 text-blue-600 py-2 px-4 rounded-xl hover:bg-blue-200">
-                  Read More
-                </button>
+              <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow text-black">
+                
+                <div className="flex flex-col items-center pb-10 text-black my-5">
+                  <img className="w-24 h-24 mb-3 rounded-full shadow-lg object-contain" src={item.image} alt="Bonnie image" />
+                  <h5 className="mb-1 text-xl font-medium text-gray-900">{item.name}</h5>
+                  
+                  <div className="flex mt-4 md:mt-6">
+                    <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Book Appointment</a>
+                    
+                  </div>
+                </div>
               </div>
             </>
           )
