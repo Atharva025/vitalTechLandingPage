@@ -89,14 +89,14 @@ function App() {
           return (
             <>
               <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow text-black">
-                
+
                 <div className="flex flex-col items-center pb-10 text-black my-5">
                   <img className="w-24 h-24 mb-3 rounded-full shadow-lg object-contain" src={item.image} alt="Bonnie image" />
                   <h5 className="mb-1 text-xl font-medium text-gray-900">{item.name}</h5>
-                  
+
                   <div className="flex mt-4 md:mt-6">
-                    <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Book Appointment</a>
-                    
+                    <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Book Appointment</a>
+
                   </div>
                 </div>
               </div>
