@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../src/App.css";
 import { Doctors } from "./components/dentistDoctors";
 import { Box, Modal, Typography } from "@mui/material";
-
+import { Client, Databases } from "appwrite";
 
 function App() {
-
+  const [userCount, setUserCount] = useState(0);
   const [open, setOpen] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
@@ -13,6 +13,28 @@ function App() {
     setSelectedDoctor(doctor);
     setOpen(true);
   }
+
+  useEffect(() => {
+    const client = new Client();
+    const databases = new Databases(client);
+
+    client
+      .setEndpoint("https://cloud.appwrite.io/v1")
+      .setProject("66d69062002ae4d78ba1")
+
+    const fetchUsers = async () => {
+      try {
+        const response = await databases.listDocuments("66d690e5002036acdfa3", "66d69117002f4121a810");
+        console.log(response);
+        setUserCount(response.total);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUsers();
+
+
+  }, []);
 
   const handleClose = () => {
     setOpen(false);
@@ -50,7 +72,7 @@ function App() {
               <img src="assets/images/landingPageBg.png" alt="header image" className="relative w-full max-w-[475px] z-10" />
               <div className=" bg-white h-auto w-auto gap-4 rounded-lg my-5 shadow-[5px_5px_20px_rgba(0,0,0,0.2)]">
                 <div className="relative right-5 text-black h-full w-full">
-                  <h4 className=" text-black text-xl font-semibold text-text-dark">1520+</h4>
+                  <h4 className=" text-black text-xl font-semibold text-text-dark">{userCount}</h4>
                   <p className="text-text-light">Active Clients</p>
                 </div>
               </div>
